@@ -48,7 +48,7 @@ function Quiz(props) {
                     {answer.text}
                     <button onClick={handleSelect} name={answer.answer_id}>
                       {props.selectedAnswer === answer.answer_id
-                        ? "Selected"
+                        ? "SELECTED"
                         : "Select"}
                     </button>
                   </div>
@@ -73,7 +73,6 @@ function Quiz(props) {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     quiz: state.quiz,
     selectedAnswer: state.selectedAnswer,
