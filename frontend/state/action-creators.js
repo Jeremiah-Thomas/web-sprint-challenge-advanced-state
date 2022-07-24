@@ -63,10 +63,12 @@ export function postAnswer(ans) {
     console.log(ans);
     axios
       .post("http://localhost:9000/api/quiz/answer", ans)
-      .then((res) => dispatch(setMessage(res.data.message)))
+      .then((res) => {
+        dispatch(selectAnswer(null));
+        dispatch(setMessage(res.data.message));
+        dispatch(fetchQuiz());
+      })
       .catch((err) => dispatch(setMessage(err.response.data.message)));
-    dispatch(selectAnswer(""));
-    dispatch(fetchQuiz());
   };
 }
 export function postQuiz(quiz) {
